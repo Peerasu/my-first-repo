@@ -33,16 +33,19 @@ the program should be available at NCBI website or this link https://github.com/
 
 
 ## SECOND : Running the pipeline
-All scripts used to run the pipeline are all in "script_main" directory. The "script_main" directory should be in your home directory and you should run the script from home directory.
+   - All scripts used to run the pipeline are all in "script_main" directory. 
+   - The "script_main" directory should be placed in home directory. 
+   - You should run the script from home directory.
+   - All scripts is wrote based on system with PBS job scheduler which is the one that we run on in the paper.
 
-   Home
-      script_main
-         00_dashboard_main.sh
-         01_sra_main.sh
-         02_trim_main.sh
-         03_bowtie_mpi_main.sh
-         05_spades_main.sh
-         06_Binning_main.sh
+   - Home
+      - script_main
+         - 00_dashboard_main.sh
+         - 01_sra_main.sh
+         - 02_trim_main.sh
+         - 03_bowtie_mpi_main.sh
+         - 05_spades_main.sh
+         - 06_Binning_main.sh
 
 ### Step 0 : Download dataset from NCBI
 
