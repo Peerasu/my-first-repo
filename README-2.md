@@ -27,10 +27,11 @@ the program should be available at NCBI website or this link https://github.com/
    - conda
 
 ### Create conda environment from env files.
+```
    conda env create -n checkm -f env_checkm.yml
    conda env create -n metabat -f env_metabat.yml
    conda env create -n dashboard -f env_dashboard.yml
-
+```
 
 ## SECOND : Running the pipeline
    - All scripts used to run the pipeline are all in "script_main" directory. 
@@ -38,14 +39,16 @@ the program should be available at NCBI website or this link https://github.com/
    - You should run the script from home directory.
    - All scripts is wrote based on system with PBS job scheduler which is the one that we run on in the paper.
 
-   - Home
-      - script_main
-         - 00_dashboard_main.sh
-         - 01_sra_main.sh
-         - 02_trim_main.sh
-         - 03_bowtie_mpi_main.sh
-         - 05_spades_main.sh
-         - 06_Binning_main.sh
+```
+   Home
+      script_main
+         00_dashboard_main.sh
+         01_sra_main.sh
+         02_trim_main.sh
+         03_bowtie_mpi_main.sh
+         05_spades_main.sh
+         06_Binning_main.sh
+```
 
 ### Step 0 : Download dataset from NCBI
 
