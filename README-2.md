@@ -49,7 +49,7 @@ the program should be available at NCBI website or this link https://github.com/
          06_Binning_main.sh
 ```
 
-### Step 0 : Download dataset from NCBI
+### Step 0.1 : Download dataset from NCBI
 Put the SRA number of the dataset that you want to download in the "names" array.
 
 ```
@@ -68,7 +68,42 @@ Then run the script preferably from home directory.
 
 After the download is complete. The rawdata, in fastq file format, will be in "~/01.Rawdata" directory.
 
-#### From NCBI dataset webpage, download reference genome of host plant and place the file (.fna format) in the "~/ref_genome" directory.
+### Step 0.2 : Download reference genome of host plant
+
+*** You can download host reference genome from NCBI dataset webpage. ***
+
+Initially, place the plant reference genome file (.fna.gz) into the directory named for the dataset:
+
+```
+home
+	ref_genome
+		ref_{dataset name}
+            reference genome file <-- .fna.gz file
+```
+
+For example, to add the reference genome file "GCA_004348155.2_Tetep-1.0_genome_genomic.fna.gz" for dataset "SRR9733640":
+
+```
+home
+	ref_genome
+		ref_SRR9733640
+		    GCA_004348155.2_Tetep-1.0_genome_genomic.fna.gz
+```
+
+After Bowtie 2 (step 2) finishes the indexing phase, additional files will appear in the same directory. 
+You don’t need to move or rename anything, just keep the ref_{dataset_name} directory intact:
+```
+home
+	ref_genome
+		ref_SRR9733640
+            GCA_004348155.2_Tetep-1.0_genome_genomic.1.bt2
+            GCA_004348155.2_Tetep-1.0_genome_genomic.2.bt2
+            GCA_004348155.2_Tetep-1.0_genome_genomic.3.bt2
+            GCA_004348155.2_Tetep-1.0_genome_genomic.4.bt2
+			GCA_004348155.2_Tetep-1.0_genome_genomic.fna.gz
+            GCA_004348155.2_Tetep-1.0_genome_genomic.rev.1.bt2
+            GCA_004348155.2_Tetep-1.0_genome_genomic.rev.2.bt2
+```
 
 
 ### Step 1 : Data Preprocessing
