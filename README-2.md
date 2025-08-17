@@ -28,15 +28,14 @@ the program should be available at NCBI website or this link https://github.com/
 
 ### Create conda environment from env files.
 ```
-   conda env create -n checkm -f env_checkm.yml
-   conda env create -n metabat -f env_metabat.yml
-   conda env create -n dashboard -f env_dashboard.yml
+   conda env create -n checkm -f ~/env/env_checkm.yml
+   conda env create -n metabat -f ~/env/env_metabat.yml
+   conda env create -n dashboard -f ~/env/env_dashboard.yml
 ```
 
 ## SECOND : Running the pipeline
    - All scripts used to run the pipeline are all in "script_main" directory. 
    - The "script_main" directory should be placed in home directory. 
-   - You should run the script from home directory.
    - All scripts is wrote based on system with PBS job scheduler which is the one that we run on in the paper.
 
 ```
@@ -51,4 +50,25 @@ the program should be available at NCBI website or this link https://github.com/
 ```
 
 ### Step 0 : Download dataset from NCBI
+Put the SRA number of the dataset that you want to download in the "names" array.
+
+```
+################################# User input #################################
+
+names=(SRR23958681 SRR23958667 SRR23958665)
+
+##############################################################################
+```
+
+Then run the script preferably from home directory.
+
+```
+~/script_main/01_sra_main.sh
+```
+
+After the download is complete. The rawdata, in fastq file format, will be in "~/01.Rawdata" directory.
+
+
+### Step 1 : Data Preprocessing
+
 
