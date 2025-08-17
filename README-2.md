@@ -3,7 +3,7 @@
 # Plant Microbiome Analysis Pipeline
 This repository contain the pipeline presented in the paper "Massively Parallel Burrows-Wheeler Alignment for Microbiome Analysis over Plant Genomic Data". In the paper we mainly talk about step 2, sequence alignment, but this repository wil also contain the step 1-3 but not step 4-5 which is a downstream analysis task.
 
-## FIRST : Setup the system
+## 🔧 FIRST : Setup the system
 ### Download the program "SRA Toolkit".
 the program should be available at NCBI website or this link https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit
 
@@ -33,7 +33,7 @@ the program should be available at NCBI website or this link https://github.com/
    conda env create -n dashboard -f ~/env/env_dashboard.yml
 ```
 
-## SECOND : Running the pipeline
+## 🚀 SECOND : Running the pipeline
    - All scripts used to run the pipeline are all in "script_main" directory. 
    - The "script_main" directory should be placed in home directory. 
    - All scripts is wrote based on system with PBS job scheduler which is the one that we run on in the paper.
