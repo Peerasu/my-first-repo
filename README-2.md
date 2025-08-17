@@ -68,6 +68,8 @@ Then run the script preferably from home directory.
 
 After the download is complete. The rawdata, in fastq file format, will be in "~/01.Rawdata" directory.
 
+#### From NCBI dataset webpage, download reference genome of host plant and place the file (.fna format) in the "~/ref_genome" directory.
+
 
 ### Step 1 : Data Preprocessing
 
