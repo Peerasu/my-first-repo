@@ -138,7 +138,7 @@ Then run the script preferably from home directory.
 ~/script_main/02_trim_main.sh
 ```
 
-After the download is complete. The result will be in "~/02.Trim_<dataset SRA number>" directory.
+The result files will be in "~/02.Trim_{Sample name}" directory.
 
 
 ### Step 2 : Sequence Alignment using Bowtie2 with our proposed improvement method
@@ -157,6 +157,14 @@ threads=(4 4 4)										 # Threads per process
 ############################################################################## 
 ```
 
+Then run the script preferably from home directory.
+
+```
+~/script_main/03_bowtie_mpi_main.sh
+```
+
+The result files will be in "~/03.Mapping-genome-bowtie_MPI_{Sample name}" directory.
+
 
 ### Step 3 : Metagenome Assembling using metaSPAdes
 Enter the following parameters for each jobs. The parameter-array values in the same index position will be use for the same job. 
@@ -172,6 +180,14 @@ threads=(16 16 16)                                      # Threads for metaSPAdes
 
 ############################################################################## 
 ```
+
+Then run the script preferably from home directory.
+
+```
+~/script_main/05_spades_main.sh
+```
+
+The result files will be in "~/05.assembly_{Sample name}" directory.
 
 
 ### Binning
@@ -189,6 +205,16 @@ threads=(16 16 16)                                      # Threads for program
 ############################################################################## 
 ```
 
+Then run the script preferably from home directory.
+
+```
+~/script_main/06_Binning_main.sh
+```
+
+The result files will be in directory:
+	- ~/05.assembly_{Sample name}/06.coverage
+ 	- ~/05.assembly_{Sample name}/07.binning
+ 	- ~/05.assembly_{Sample name}/08.checkM
 
 ### Creating dashboard file
 Enter the following parameters for each jobs. The parameter-array values in the same index position will be use for the same job. 
@@ -200,5 +226,11 @@ names=(SRR23958681 SRR23958667 SRR23958665)             # Sample names
 ##############################################################################
 ```
 
+Then run the script preferably from home directory.
 
+```
+~/script_main/00_dashboard_main.sh
+```
+
+The result files will be in "~/dashboard_files_{Sample name}" directory.
 
