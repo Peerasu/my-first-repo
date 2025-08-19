@@ -1,15 +1,15 @@
 # Massively Parallel Burrows-Wheeler Alignment for Microbiome Analysis over Plant Genomic Data
 
 # Plant Microbiome Analysis Pipeline
-This repository contain the pipeline presented in the paper "Massively Parallel Burrows-Wheeler Alignment for Microbiome Analysis over Plant Genomic Data". In the paper we mainly discuss about step 2, sequence alignment. However, this repository also includes steps 1–3, but not steps 4–5, which involve downstream analysis tasks.
+This repository contain the pipeline presented in the paper **"Massively Parallel Burrows-Wheeler Alignment for Microbiome Analysis over Plant Genomic Data".** In the paper we mainly discuss about step 2, sequence alignment. However, this repository also includes steps 1–3, but not steps 4–5, which involve downstream analysis tasks.
 
 ## 🔧 FIRST : Setup the system
 ### Download the program "SRA Toolkit".
 The program should be available on the NCBI website or this link https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit  
 
 * Ensure that the SRA Toolkit executable can be called from your home directory.
-* In this code we use program version "sratoolkit.3.1.1-centos_linux64".
-  If you use different version, please change the program name in the file "~/script/01_sra_sub.sh" (around line 35) accordingly.  
+* In this code we use program version **"sratoolkit.3.1.1-centos_linux64".**
+  If you use different version, please change the program name in the file **"~/script/01_sra_sub.sh" (around line 35)** accordingly.  
 
 
 ### For step 1: Data Preprocessing, ensure that your system have the following programs.
@@ -43,8 +43,8 @@ The program should be available on the NCBI website or this link https://github.
 ```
 
 ## 🚀 SECOND : Running the pipeline
-   - All scripts used to run the pipeline are in "script_main" directory. 
-   - The "script_main" directory should be placed in the home directory. 
+   - All scripts used to run the pipeline are in **"script_main"** directory. 
+   - The **"script_main"** directory should be placed in the home directory. 
    - All scripts were written based on a system with the PBS job scheduler, which is the one we used in the paper.
 
 
@@ -62,7 +62,7 @@ The program should be available on the NCBI website or this link https://github.
 ### Step 0.1 : Download datasets from NCBI
 Enter the following parameters for each job. The parameter-array values in the same index position will be use for the same job.
 
-✅ Since each job will run with only one dataset, this script will help you run multiple datasets at the same time without the extra step to "qsub" each job by yourself.
+✅ In our pipeline, each job runs with only one dataset. This script lets you run multiple datasets for the same step simultaneously in a single script, avoiding manual submission of each job.
 
 **Below is an example of the parameters. In your case, you can use different parameters from the ones shown here:**
 ```
@@ -83,7 +83,7 @@ Then run the script:
 ~/script_main/01_sra_main.sh
 ```
 
-After the download is complete, the raw data in fastq file format will be in the directory:
+After the download is complete, the raw data will be in the directory:
 ```
 ~/01.Rawdata
 ```
@@ -101,7 +101,7 @@ home
             reference genome file <-- .fna.gz file
 ```
 
-For example, to add the reference genome file "GCA_004348155.2_Tetep-1.0_genome_genomic.fna.gz" for dataset "SRR9733640":
+For example, to add the reference genome file **"GCA_004348155.2_Tetep-1.0_genome_genomic.fna.gz"** for dataset **"SRR9733640"**:
 
 ```
 home
