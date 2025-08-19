@@ -164,7 +164,7 @@ Enter the following parameters for each job. The parameter-array values in the s
 ################################# User input #################################
 
 # Define parameter arrays
-names=(SRR23958681 SRR23958667 SRR23958665))         # Sample names
+names=(SRR23958681 SRR23958667 SRR23958665)	         # Sample names
 memories=(80 80 80)                                  # Memory in GB
 times=("24:00:00" "12:00:00" "12:00:00")             # Walltime
 ppns=(32 32 32)                                      # Processors per node
