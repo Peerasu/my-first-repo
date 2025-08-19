@@ -111,7 +111,7 @@ home
 ```
 
 After Bowtie 2 (step 2) finishes the indexing phase, additional files will appear in the same directory. 
-You don’t need to move or rename anything, just keep the ref_{dataset_name} directory intact:
+You don’t need to move or rename anything, just keep the **ref_{dataset_name}** directory intact:
 ```
 home
 	ref_genome
