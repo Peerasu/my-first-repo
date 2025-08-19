@@ -12,6 +12,10 @@ The program should be available on the NCBI website or this link https://github.
   If you use different version, please change the program name in the file **"~/script/01_sra_sub.sh" (around line 35)** accordingly.  
 
 
+Below is the list of pragrams used in the pipeline. The version of the program on your system is probably different from the one used in this pipeline.
+In case you can't run the pipeline because your system does not recognize the program version used in our pipeline, please update the script files in **"~/script/"** directory by changing the program version in **"module load {program name & version}"** to match the one on your system instead.
+
+
 ### For step 1: Data Preprocessing, ensure that your system have the following programs.
    - trimmomatic
    - fastqc
