@@ -132,6 +132,14 @@ threads=(16 16 16)                                      # Threads for trimmomati
 ############################################################################## 
 ```
 
+Then run the script preferably from home directory.
+
+```
+~/script_main/02_trim_main.sh
+```
+
+After the download is complete. The result will be in "~/02.Trim_<dataset SRA number>" directory.
+
 
 ### Step 2 : Sequence Alignment using Bowtie2 with our proposed improvement method
 Enter the following parameters for each jobs. The parameter-array values in the same index position will be use for the same job. 
