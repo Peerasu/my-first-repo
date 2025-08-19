@@ -47,8 +47,8 @@ In case you can't run the pipeline because your system does not recognize the pr
 ```
 
 ## 🚀 SECOND : Running the pipeline
-   - All scripts used to run the pipeline are in **"script_main"** directory. 
-   - The **"script_main"** directory should be placed in the home directory. 
+   - All scripts used to run the pipeline are in **"~/script_main/"** directory. 
+   - The **"~/script_main/"** directory should be placed in the home directory. 
    - All scripts were written based on a system with the PBS job scheduler, which is the one we used in the paper.
 
 
@@ -63,10 +63,10 @@ In case you can't run the pipeline because your system does not recognize the pr
          06_Binning_main.sh
 ```
 
-### Step 0.1 : Download datasets from NCBI
+### Step 0.1 : Download sample data from NCBI
 Enter the following parameters for each job. The parameter-array values in the same index position will be use for the same job.
 
-✅ In our pipeline, each job runs with only one dataset. This script lets you run multiple datasets for the same step simultaneously in a single script, avoiding manual submission of each job.
+✅ In our pipeline, each job runs with only one sample data. This script lets you run multiple sample data for the same step simultaneously in a single script, avoiding manual submission of each job.
 
 **Below is an example of the parameters. In your case, you can use different parameters from the ones shown here:**
 ```
@@ -94,18 +94,18 @@ After the download is complete, the raw data will be in the directory:
 
 ### Step 0.2 : Download reference genome of host plant
 
-**You can download host reference genome from NCBI dataset webpage.**
+**You can download host reference genome from NCBI webpage.**
 
-Initially, place the plant reference genome file (.fna.gz) into the directory named for the dataset:
+Initially, place the plant reference genome file (.fna.gz) into the directory named for the sample:
 
 ```
 home
 	ref_genome
-		ref_{dataset name}
+		ref_{Sample name}
             reference genome file <-- .fna.gz file
 ```
 
-For example, to add the reference genome file **"GCA_004348155.2_Tetep-1.0_genome_genomic.fna.gz"** for dataset **"SRR9733640"**:
+For example, to add the reference genome file **"GCA_004348155.2_Tetep-1.0_genome_genomic.fna.gz"** for sample **"SRR9733640"**:
 
 ```
 home
@@ -115,7 +115,7 @@ home
 ```
 
 After Bowtie 2 (step 2) finishes the indexing phase, additional files will appear in the same directory. 
-You don’t need to move or rename anything, just keep the **ref_{dataset_name}** directory intact:
+You don’t need to move or rename anything, just keep the **ref_{Sample name}** directory intact:
 ```
 home
 	ref_genome
