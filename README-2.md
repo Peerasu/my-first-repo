@@ -76,7 +76,10 @@ Then run the script preferably from home directory.
 ~/script_main/01_sra_main.sh
 ```
 
-After the download is complete. The rawdata, in fastq file format, will be in "~/01.Rawdata" directory.
+After the download is complete. The rawdata, in fastq file format, will be in directory:
+```
+~/01.Rawdata
+```
 
 ### Step 0.2 : Download reference genome of host plant
 
@@ -138,7 +141,10 @@ Then run the script preferably from home directory.
 ~/script_main/02_trim_main.sh
 ```
 
-The result files will be in "~/02.Trim_{Sample name}" directory.
+The result files will be in directory:
+```
+~/02.Trim_{Sample name}
+```
 
 
 ### Step 2 : Sequence Alignment using Bowtie2 with our proposed improvement method
@@ -163,7 +169,10 @@ Then run the script preferably from home directory.
 ~/script_main/03_bowtie_mpi_main.sh
 ```
 
-The result files will be in "~/03.Mapping-genome-bowtie_MPI_{Sample name}" directory.
+The result files will be in directory:
+```
+~/03.Mapping-genome-bowtie_MPI_{Sample name}
+```
 
 
 ### Step 3 : Metagenome Assembling using metaSPAdes
@@ -187,7 +196,10 @@ Then run the script preferably from home directory.
 ~/script_main/05_spades_main.sh
 ```
 
-The result files will be in "~/05.assembly_{Sample name}" directory.
+The result files will be in directory:
+```
+~/05.assembly_{Sample name}
+```
 
 
 ### Binning
@@ -212,10 +224,12 @@ Then run the script preferably from home directory.
 ```
 
 The result files will be in directory:
-	-	~/05.assembly_{Sample name}/06.coverage
- 	-	~/05.assembly_{Sample name}/07.binning
-  	-	~/05.assembly_{Sample name}/08.checkM
-   
+```
+~/05.assembly_{Sample name}/06.coverage
+~/05.assembly_{Sample name}/07.binning
+~/05.assembly_{Sample name}/08.checkM
+```
+
 
 ### Creating dashboard file
 Enter the following parameters for each jobs. The parameter-array values in the same index position will be use for the same job. 
@@ -233,5 +247,8 @@ Then run the script preferably from home directory.
 ~/script_main/00_dashboard_main.sh
 ```
 
-The result files will be in "~/dashboard_files_{Sample name}" directory.
+The result files will be in directory:
+```
+~/dashboard_files_{Sample name}
+```
 
