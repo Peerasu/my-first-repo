@@ -212,9 +212,10 @@ Then run the script preferably from home directory.
 ```
 
 The result files will be in directory:
-	- ~/05.assembly_{Sample name}/06.coverage
- 	- ~/05.assembly_{Sample name}/07.binning
- 	- ~/05.assembly_{Sample name}/08.checkM
+	-	~/05.assembly_{Sample name}/06.coverage
+ 	-	~/05.assembly_{Sample name}/07.binning
+  	-	~/05.assembly_{Sample name}/08.checkM
+   
 
 ### Creating dashboard file
 Enter the following parameters for each jobs. The parameter-array values in the same index position will be use for the same job. 
