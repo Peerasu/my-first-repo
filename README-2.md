@@ -5,11 +5,11 @@ This repository contain the pipeline presented in the paper "Massively Parallel 
 
 ## 🔧 FIRST : Setup the system
 ### Download the program "SRA Toolkit".
-the program should be available on the NCBI website or this link https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit  
+The program should be available on the NCBI website or this link https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit  
 
 * Ensure that the SRA Toolkit executable can be called from your home directory.
 * In this code we use program version "sratoolkit.3.1.1-centos_linux64".
-  If you use different version, update the program name in the file "~/script/01_sra_sub.sh" (around line 35) accordingly.  
+  If you use different version, please change the program name in the file "~/script/01_sra_sub.sh" (around line 35) accordingly.  
 
 
 ### For step 1: Data Preprocessing, ensure that your system have the following programs.
@@ -43,9 +43,10 @@ the program should be available on the NCBI website or this link https://github.
 ```
 
 ## 🚀 SECOND : Running the pipeline
-   - All scripts used to run the pipeline are all in "script_main" directory. 
-   - The "script_main" directory should be placed in home directory. 
-   - All scripts is wrote based on system with PBS job scheduler which is the one that we run on in the paper.
+   - All scripts used to run the pipeline are in "script_main" directory. 
+   - The "script_main" directory should be placed in the home directory. 
+   - All scripts were written based on a system with the PBS job scheduler, which is the one we used in the paper.
+
 
 ```
    Home
@@ -58,11 +59,12 @@ the program should be available on the NCBI website or this link https://github.
          06_Binning_main.sh
 ```
 
-### Step 0.1 : Download dataset from NCBI
-Enter the following parameters for each jobs. The parameter-array values in the same index position will be use for the same job. 
+### Step 0.1 : Download datasets from NCBI
+Enter the following parameters for each job. The parameter-array values in the same index position will be use for the same job.
 
-✅ Since each jobs will run with only one dataset, this script will help you run multiple dataset at the same time without the extra step to "qsub" each job by yourself.
+✅ Since each job will run with only one dataset, this script will help you run multiple datasets at the same time without the extra step to "qsub" each job by yourself.
 
+**Below is an example of the parameters. In your case, you can use different parameters from the ones shown here:**
 ```
 ################################# User input #################################
 
@@ -75,20 +77,20 @@ ppns=(16 16 16)                                         # Processors per node
 ##############################################################################
 ```
 
-Then run the script preferably from home directory.
+Then run the script:
 
 ```
 ~/script_main/01_sra_main.sh
 ```
 
-After the download is complete. The rawdata, in fastq file format, will be in directory:
+After the download is complete, the raw data in fastq file format will be in the directory:
 ```
 ~/01.Rawdata
 ```
 
 ### Step 0.2 : Download reference genome of host plant
 
-*** You can download host reference genome from NCBI dataset webpage. ***
+**You can download host reference genome from NCBI dataset webpage.**
 
 Initially, place the plant reference genome file (.fna.gz) into the directory named for the dataset:
 
@@ -126,7 +128,9 @@ home
 
 
 ### Step 1 : Data Preprocessing using Trimmomatics
-Enter the following parameters for each jobs. The parameter-array values in the same index position will be use for the same job. 
+Enter the following parameters for each job. The parameter-array values in the same index position will be use for the same job.
+
+**Below is an example of the parameters. In your case, you can use different parameters from the ones shown here:**
 ```
 ################################# User input #################################
 
@@ -140,20 +144,22 @@ threads=(16 16 16)                                      # Threads for trimmomati
 ############################################################################## 
 ```
 
-Then run the script preferably from home directory.
+Then run the script:
 
 ```
 ~/script_main/02_trim_main.sh
 ```
 
-The result files will be in directory:
+The result files will be in the directory:
 ```
 ~/02.Trim_{Sample name}
 ```
 
 
 ### Step 2 : Sequence Alignment using Bowtie2 with our proposed improvement method
-Enter the following parameters for each jobs. The parameter-array values in the same index position will be use for the same job. 
+Enter the following parameters for each job. The parameter-array values in the same index position will be use for the same job. 
+
+**Below is an example of the parameters. In your case, you can use different parameters from the ones shown here:**
 ```
 ################################# User input #################################
 
@@ -168,20 +174,22 @@ threads=(4 4 4)										 # Threads per process
 ############################################################################## 
 ```
 
-Then run the script preferably from home directory.
+Then run the script:
 
 ```
 ~/script_main/03_bowtie_mpi_main.sh
 ```
 
-The result files will be in directory:
+The result files will be in the directory:
 ```
 ~/03.Mapping-genome-bowtie_MPI_{Sample name}
 ```
 
 
 ### Step 3 : Metagenome Assembling using metaSPAdes
-Enter the following parameters for each jobs. The parameter-array values in the same index position will be use for the same job. 
+Enter the following parameters for each job. The parameter-array values in the same index position will be use for the same job. 
+
+**Below is an example of the parameters. In your case, you can use different parameters from the ones shown here:**
 ```
 ################################# User input #################################
 
@@ -195,20 +203,22 @@ threads=(16 16 16)                                      # Threads for metaSPAdes
 ############################################################################## 
 ```
 
-Then run the script preferably from home directory.
+Then run the script:
 
 ```
 ~/script_main/05_spades_main.sh
 ```
 
-The result files will be in directory:
+The result files will be in the directory:
 ```
 ~/05.assembly_{Sample name}
 ```
 
 
 ### Binning
-Enter the following parameters for each jobs. The parameter-array values in the same index position will be use for the same job. 
+Enter the following parameters for each job. The parameter-array values in the same index position will be use for the same job. 
+
+**Below is an example of the parameters. In your case, you can use different parameters from the ones shown here:**
 ```
 ################################# User input #################################
 
@@ -222,13 +232,13 @@ threads=(16 16 16)                                      # Threads for program
 ############################################################################## 
 ```
 
-Then run the script preferably from home directory.
+Then run the script:
 
 ```
 ~/script_main/06_Binning_main.sh
 ```
 
-The result files will be in directory:
+The result files will be in the directory:
 ```
 ~/05.assembly_{Sample name}/06.coverage
 ~/05.assembly_{Sample name}/07.binning
@@ -237,7 +247,9 @@ The result files will be in directory:
 
 
 ### Creating dashboard file
-Enter the following parameters for each jobs. The parameter-array values in the same index position will be use for the same job. 
+Enter the following parameters for each job. The parameter-array values in the same index position will be use for the same job. 
+
+**Below is an example of the parameters. In your case, you can use different parameters from the ones shown here:**
 ```
 ################################# User input #################################
 
@@ -246,13 +258,13 @@ names=(SRR23958681 SRR23958667 SRR23958665)             # Sample names
 ##############################################################################
 ```
 
-Then run the script preferably from home directory.
+Then run the script:
 
 ```
 ~/script_main/00_dashboard_main.sh
 ```
 
-The result files will be in directory:
+The result files will be in the directory:
 ```
 ~/dashboard_files_{Sample name}
 ```
