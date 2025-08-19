@@ -7,6 +7,11 @@ This repository contain the pipeline presented in the paper "Massively Parallel 
 ### Download the program "SRA Toolkit".
 the program should be available at NCBI website or this link https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit
 
+	- Make sure that you can call the SRA Toolkit program from home directory.
+
+	- In this code we use program version "sratoolkit.3.1.1-centos_linux64". If you want to use other version, please change the program name in ~/script/01_sra_sub.sh file (around line 35) accordingly.
+
+
 ### For step 1: Data Preprocessing, ensure that your system have the following programs.
    - trimmomatic
    - fastqc
