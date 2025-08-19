@@ -186,7 +186,7 @@ Enter the following parameters for each jobs. The parameter-array values in the 
 ```
 ################################# User input #################################
 
-names=(SRR23958681 SRR23958667 SRR23958665)
+names=(SRR23958681 SRR23958667 SRR23958665)             # Sample names
 
 ##############################################################################
 ```
