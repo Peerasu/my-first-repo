@@ -19,12 +19,16 @@ the program should be available at NCBI website or this link https://github.com/
    - conda
 ### For step 3: Metagenome Assembling, ensure that your system have the following programs.
    - spades
+### For Binning step, ensure that your system have the following programs.
    - QUAST
    - bbmap
    - samtools
    - bedtools2
    - purge
    - conda
+### For Dashboard step, ensure that your system have the following programs.
+   - conda
+
 
 ### Create conda environment from env files.
 ```
@@ -50,12 +54,17 @@ the program should be available at NCBI website or this link https://github.com/
 ```
 
 ### Step 0.1 : Download dataset from NCBI
-Put the SRA number of the dataset that you want to download in the "names" array.
+Enter the following parameters for each jobs. The parameter-array values in the same index position will be use for the same job. 
+✅ Since each jobs will run with only one dataset, this script will help you run multiple dataset at the same time without the extra step to "qsub" each job by yourself.
 
 ```
 ################################# User input #################################
 
-names=(SRR23958681 SRR23958667 SRR23958665)
+# Define parameter arrays
+names=(SRR23958681 SRR23958667 SRR23958665)             # Sample names
+memories=(80 80 80)                                     # Memory in GB
+times=("10:00:00" "80:00:00" "80:00:00")                # Walltime
+ppns=(16 16 16)                                         # Processors per node
 
 ##############################################################################
 ```
@@ -106,6 +115,81 @@ home
 ```
 
 
-### Step 1 : Data Preprocessing
+
+### Step 1 : Data Preprocessing using Trimmomatics
+Enter the following parameters for each jobs. The parameter-array values in the same index position will be use for the same job. 
+```
+################################# User input #################################
+
+# Define parameter arrays
+names=(SRR23958681 SRR23958667 SRR23958665)             # Sample names
+memories=(80 80 80)                                     # Memory in GB
+times=("10:00:00" "80:00:00" "80:00:00")                # Walltime
+ppns=(16 16 16)                                         # Processors per node
+threads=(16 16 16)                                      # Threads for trimmomatic
+
+############################################################################## 
+```
+
+
+### Step 2 : Sequence Alignment using Bowtie2 with our proposed improvement method
+Enter the following parameters for each jobs. The parameter-array values in the same index position will be use for the same job. 
+```
+################################# User input #################################
+
+# Define parameter arrays
+names=(SRR23958681 SRR23958667 SRR23958665))         # Sample names
+memories=(80 80 80)                                  # Memory in GB
+times=("24:00:00" "12:00:00" "12:00:00")             # Walltime
+ppns=(32 32 32)                                      # Processors per node
+procs=(32 32 32)									 # Processors per process
+threads=(4 4 4)										 # Threads per process
+
+############################################################################## 
+```
+
+
+### Step 3 : Metagenome Assembling using metaSPAdes
+Enter the following parameters for each jobs. The parameter-array values in the same index position will be use for the same job. 
+```
+################################# User input #################################
+
+# Define parameter arrays
+names=(SRR23958681 SRR23958667 SRR23958665)             # Sample names
+memories=(80 80 80)                                     # Memory in GB
+times=("80:00:00" "80:00:00" "80:00:00")                # Walltime
+ppns=(16 16 16)                                         # Processors per node
+threads=(16 16 16)                                      # Threads for metaSPAdes
+
+############################################################################## 
+```
+
+
+### Binning
+Enter the following parameters for each jobs. The parameter-array values in the same index position will be use for the same job. 
+```
+################################# User input #################################
+
+# Define parameter arrays
+names=(SRR23958681 SRR23958667 SRR23958665)             # Sample names
+memories=(80 80 80)                                     # Memory in GB
+times=("10:00:00" "12:00:00" "24:00:00")                # Walltime
+ppns=(16 16 16)                                         # Processors per node
+threads=(16 16 16)                                      # Threads for program
+
+############################################################################## 
+```
+
+
+### Creating dashboard file
+Enter the following parameters for each jobs. The parameter-array values in the same index position will be use for the same job. 
+```
+################################# User input #################################
+
+names=(SRR23958681 SRR23958667 SRR23958665)
+
+##############################################################################
+```
+
 
 
